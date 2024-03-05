@@ -16,7 +16,7 @@ jobs:
         cache-path: '${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:'
     - run: flutter --version
     - run: flutter pub get
-    - run: flutter build web --base-href /${{ github.event.repository.name }}/
+    - run: flutter build web --web-renderer canvaskit --base-href /${{ github.event.repository.name }}/
     - uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: build/web
